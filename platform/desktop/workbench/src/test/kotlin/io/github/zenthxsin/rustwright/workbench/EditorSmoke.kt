@@ -40,8 +40,14 @@ fun main() {
     val platform = DesktopPlatform(home)
     val app = object : RustwrightApp(listOf(FontFile("/usr/share/fonts/truetype/wqy/wqy-zenhei.ttc")), platform,
         HostShellEnvironment(File(home, "workspace")), FileSecretStore(File(home, "secrets.properties")), WorkbenchModules.all() + DesktopSvgModule) {
+        private var nextScenarioTick = System.nanoTime()
         override fun update() {
             super.update()
+            // Xvfb may ignore vsync and render hundreds of frames per second.
+            // Keep interaction waits tied to elapsed time, including coroutine debounce.
+            val now = System.nanoTime()
+            if (now < nextScenarioTick) return
+            nextScenarioTick = now + 16_666_667L
             runCatching {
                 when (++frame) {
                     30 -> {
@@ -107,6 +113,6 @@ fun main() {
             }.onFailure { failed = true; it.printStackTrace(); Core.app.exit() }
         }
     }
-    SdlApplication(app, SdlConfig().apply { title = "Editor smoke"; width = 412; height = 892; vSyncEnabled = true })
+    SdlApplication(app, SdlConfig().apply { title = "Editor smoke"; width = 412; height = 892; vSyncEnabled = false })
     kotlin.system.exitProcess(if (failed) 1 else 0)
 }

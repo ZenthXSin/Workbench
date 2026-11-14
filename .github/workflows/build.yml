@@ -28,11 +28,11 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y xvfb libfreetype-dev pkg-config fonts-wqy-zenhei libgl1 libegl1
       - name: Exercise the generic editor
         run: |
-          tools/build-host-native.sh
-          timeout 180s xvfb-run -a ./gradlew :platform:desktop:workbench:editorSmokeTest --stacktrace
+          timeout 180s xvfb-run -a ./gradlew :platform:desktop:workbench:editorSmokeTest -PeditorHostNative=true --stacktrace
       - uses: actions/upload-artifact@v4
         if: always()
         with:
+          retention-days: 7
           name: workbench-${{ github.sha }}
           path: |
             platform/android/workbench/build/outputs/apk/debug/*.apk

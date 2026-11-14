@@ -11,8 +11,11 @@ JDK 21.0.13, Gradle 8.14.3, Android platform 36 and Build Tools 35.0.0.
 - The expanded SDL editor smoke passed 20 checks: documents, undo/redo,
   read-only editing, completion and navigation, search, outline, saved tabs,
   Markdown preview, image preview, image tool assembly, bundled AGPL text and
-  an actual pixel-editor window. Run `tools/build-host-native.sh`, then
-  `xvfb-run -a ./gradlew :platform:desktop:workbench:editorSmokeTest`.
+  an actual pixel-editor window. Run
+  `xvfb-run -a ./gradlew :platform:desktop:workbench:editorSmokeTest -PeditorHostNative=true`.
+  Its scenario clock uses elapsed time and disables vsync to reproduce fast
+  headless rendering. The host-native preparation runs after installDist, so
+  rebuilding the distribution cannot overwrite the JNI adaptation before testing.
 - Android identity labels read the consuming product's AppIdentity. Android
   platform unit tests and the standalone debug APK build passed after this change.
 - APK package `io.github.workbench.debug`, version `0.3.0-debug`. The APK contains
