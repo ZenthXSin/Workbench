@@ -25,7 +25,7 @@ class KeepAliveService : Service() {
         val launch = packageManager.getLaunchIntentForPackage(packageName)
         val pending = launch?.let { android.app.PendingIntent.getActivity(this, 0, it, android.app.PendingIntent.FLAG_IMMUTABLE) }
         val n: Notification = (if (Build.VERSION.SDK_INT >= 26) Notification.Builder(this, CHANNEL) else @Suppress("DEPRECATION") Notification.Builder(this))
-            .setContentTitle("Rustwright")
+            .setContentTitle("${io.github.zenthxsin.rustwright.core.runtime.AppBrand.identity.name}")
             .setContentText(label)
             .setSmallIcon(android.R.drawable.stat_notify_sync)
             .setOngoing(true)

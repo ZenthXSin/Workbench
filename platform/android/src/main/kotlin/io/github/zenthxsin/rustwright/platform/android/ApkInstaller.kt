@@ -14,7 +14,7 @@ object ApkInstaller {
         val modern = Build.VERSION.SDK_INT >= 28
         val flags = if (modern) PackageManager.GET_SIGNING_CERTIFICATES else PackageManager.GET_SIGNATURES
         val archive = requireNotNull(pm.getPackageArchiveInfo(apk.path, flags)) { "下载文件不是有效的 APK" }
-        require(archive.packageName == context.packageName) { "安装包不属于 Rustwright" }
+        require(archive.packageName == context.packageName) { "安装包不属于 ${io.github.zenthxsin.rustwright.core.runtime.AppBrand.identity.name}" }
         val installed = pm.getPackageInfo(context.packageName, flags)
         val version = if (modern) archive.longVersionCode else archive.versionCode.toLong()
         val current = if (modern) installed.longVersionCode else installed.versionCode.toLong()

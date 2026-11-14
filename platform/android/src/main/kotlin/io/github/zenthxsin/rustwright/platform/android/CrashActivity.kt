@@ -27,7 +27,7 @@ class CrashActivity : Activity() {
             setPadding((16 * dp).toInt(), (32 * dp).toInt(), (16 * dp).toInt(), (16 * dp).toInt())
         }
         root.addView(TextView(this).apply {
-            text = "Rustwright 出错了\n报告已复制到剪贴板，可以直接粘贴发给开发者。"
+            text = "${io.github.zenthxsin.rustwright.core.runtime.AppBrand.identity.name} 出错了\n报告已复制到剪贴板，可以直接粘贴发给开发者。"
             setTextColor(Color.rgb(0xe0, 0x7a, 0x3a)); textSize = 16f
         })
         root.addView(ScrollView(this).apply {

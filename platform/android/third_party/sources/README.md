@@ -10,7 +10,7 @@ the Android architecture in question. Relevant packages are `proot`,
 `libandroid-shmem` and `libtalloc`. PRoot depends on the latter two libraries.
 
 The locally built PTY JNI source and build instructions are already in
-`../../native/termux/`; Termux terminal-emulator source is in `core/terminal`.
+`../../native/termux/`; Termux terminal-emulator source is in the repository's `core/terminal`.
 No resource-key library is included in this repository.
 
 Archive URLs, checksums and the pinned recipe commit are in MANIFEST.json.

@@ -117,7 +117,7 @@ class AndroidPlatform(private val activity: AndroidApplication) : Platform {
 
     override fun clipboardText(): String? = clipboard.primaryClip?.takeIf { it.itemCount > 0 }?.getItemAt(0)?.coerceToText(activity)?.toString()
 
-    override fun setClipboardText(text: String) = ui { clipboard.setPrimaryClip(ClipData.newPlainText("Rustwright", text)) }
+    override fun setClipboardText(text: String) = ui { clipboard.setPrimaryClip(ClipData.newPlainText("${io.github.zenthxsin.rustwright.core.runtime.AppBrand.identity.name}", text)) }
 
     override fun toast(message: String) = ui { Toast.makeText(activity, message, Toast.LENGTH_SHORT).show() }
 

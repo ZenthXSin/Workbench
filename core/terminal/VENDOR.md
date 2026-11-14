@@ -10,4 +10,4 @@
 - `JNI`、`ByteQueue` 改为 public；`JNI` 加载失败时回退到 classpath 中的 `natives/<os>-<arch>/libtermux.so`（桌面开发版）
 - `TerminalSessionClient` 精简为光标样式 + 日志回调
 - 未带入 `TerminalSession`、`AndroidUtils`（改由 `io.github.zenthxsin.rustwright.core.terminal.PtySession` 实现）
-- JNI 源码 `termux.c` 放在 `platform/android/src/main/cpp/`（库名 `libtermux.so`）
+- JNI 源码 `termux.c` 放在 `platform/android/native/termux/`（库名 `libtermux.so`）

@@ -81,12 +81,12 @@ object CrashReporter {
     fun copy(text: String) {
         runCatching {
             val cm = app.getSystemService(ClipboardManager::class.java)
-            cm.setPrimaryClip(ClipData.newPlainText("Rustwright 崩溃报告", text))
+            cm.setPrimaryClip(ClipData.newPlainText("${io.github.zenthxsin.rustwright.core.runtime.AppBrand.identity.name} 崩溃报告", text))
         }
     }
 
     private fun build(title: String, body: String): String = buildString {
-        append("Rustwright 崩溃报告 · ").append(title).append('\n')
+        append("${io.github.zenthxsin.rustwright.core.runtime.AppBrand.identity.name} 崩溃报告 · ").append(title).append('\n')
         val pkg = runCatching { app.packageManager.getPackageInfo(app.packageName, 0) }.getOrNull()
         append("版本：").append(pkg?.versionName).append(" (").append(if (Build.VERSION.SDK_INT >= 28) pkg?.longVersionCode else @Suppress("DEPRECATION") pkg?.versionCode?.toLong()).append(")\n")
         append("设备：").append(Build.MANUFACTURER).append(' ').append(Build.MODEL).append(" · Android ").append(Build.VERSION.RELEASE)

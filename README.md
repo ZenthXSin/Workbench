@@ -37,6 +37,8 @@ APK 位于 `platform/android/workbench/build/outputs/apk/debug/workbench-debug.a
 
 | JVM 属性 | 环境变量 | 用途 |
 |---|---|---|
+| `workbench.source.url` | `WORKBENCH_SOURCE_URL` | 派生产品可访问的对应源码地址 |
+| `workbench.oauth.return_uri` | `WORKBENCH_OAUTH_RETURN_URI` | 产品浏览器返回 URI，默认 workbench://login |
 | `workbench.api.origin` | `WORKBENCH_API_ORIGIN` | NewAPI 主入口，HTTPS |
 | `workbench.api.alternate` | `WORKBENCH_API_ALTERNATE` | 同一后端的备用入口，默认主入口 |
 | `workbench.oauth.client_id` | `WORKBENCH_OAUTH_CLIENT_ID` | 自行注册的 OAuth 公共客户端 ID |
