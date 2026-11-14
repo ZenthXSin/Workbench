@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <!-- 后台保活：任务进行中切到后台时显示悬浮窗、保持 CPU 唤醒、请求不限制电池 -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+
+    <!-- 厂商的自启动 / 后台管理页（Android 11 起要声明才查得到） -->
+    <queries>
+        <package android:name="com.miui.securitycenter" />
+        <package android:name="com.huawei.systemmanager" />
+        <package android:name="com.hihonor.systemmanager" />
+        <package android:name="com.coloros.safecenter" />
+        <package android:name="com.oplus.safecenter" />
+        <package android:name="com.oneplus.security" />
+        <package android:name="com.vivo.permissionmanager" />
+        <package android:name="com.iqoo.secure" />
+        <package android:name="com.samsung.android.lool" />
+        <package android:name="com.meizu.safe" />
+        <intent>
+            <action android:name="android.media.action.IMAGE_CAPTURE" />
+        </intent>
+    </queries>
+
+    <application android:enableOnBackInvokedCallback="true">
+        <activity
+            android:name="io.github.zenthxsin.rustwright.platform.android.CrashActivity"
+            android:exported="false"
+            android:process=":crash"
+            android:theme="@android:style/Theme.DeviceDefault.NoActionBar"
+            android:label="Workbench 崩溃报告" />
+        <service
+            android:name="io.github.zenthxsin.rustwright.platform.android.KeepAliveService"
+            android:exported="false"
+            android:foregroundServiceType="dataSync" />
+        <provider
+            android:name="io.github.zenthxsin.rustwright.platform.android.RwFileProvider"
+            android:authorities="${applicationId}.files"
+            android:exported="false"
+            android:grantUriPermissions="true" />
+    </application>
+</manifest>

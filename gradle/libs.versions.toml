@@ -1,0 +1,57 @@
+[versions]
+kotlin = "2.3.0"
+agp = "8.9.2"
+coroutines = "1.10.2"
+serialization = "1.7.3"
+commonmark = "0.24.0"
+junit = "5.11.4"
+openai = "4.1.0"
+ktor = "3.4.3"
+mcp = "0.13.0"
+ksp = "2.3.9"
+kotlinpoet = "2.3.0"
+okhttp = "5.3.2"
+orgjson = "20231013"
+
+[libraries]
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
+kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
+kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serialization" }
+commonmark = { module = "org.commonmark:commonmark", version.ref = "commonmark" }
+commonmark-gfm-tables = { module = "org.commonmark:commonmark-ext-gfm-tables", version.ref = "commonmark" }
+junit-bom = { module = "org.junit:junit-bom", version.ref = "junit" }
+junit-jupiter = { module = "org.junit.jupiter:junit-jupiter" }
+junit-launcher = { module = "org.junit.platform:junit-platform-launcher" }
+
+openai-client = { module = "com.aallam.openai:openai-client", version.ref = "openai" }
+ktor-bom = { module = "io.ktor:ktor-bom", version.ref = "ktor" }
+ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp" }
+ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation" }
+ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json" }
+ktor-client-mock = { module = "io.ktor:ktor-client-mock" }
+mcp-client = { module = "io.modelcontextprotocol:kotlin-sdk-client", version.ref = "mcp" }
+ksp-api = { module = "com.google.devtools.ksp:symbol-processing-api", version.ref = "ksp" }
+kotlinpoet = { module = "com.squareup:kotlinpoet", version.ref = "kotlinpoet" }
+kotlinpoet-ksp = { module = "com.squareup:kotlinpoet-ksp", version.ref = "kotlinpoet" }
+okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
+okhttp-mockwebserver = { module = "com.squareup.okhttp3:mockwebserver", version.ref = "okhttp" }
+org-json = { module = "org.json:json", version.ref = "orgjson" }
+junit4 = { module = "junit:junit", version = "4.13.2" }
+junit-vintage = { module = "org.junit.vintage:junit-vintage-engine" }
+
+# build-logic
+kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+android-gradle-plugin = { module = "com.android.tools.build:gradle", version.ref = "agp" }
+
+[plugins]
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+android-application = { id = "com.android.application", version.ref = "agp" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+
+# 约定插件（build-logic）
+rw-jvm-library = { id = "rw.jvm.library" }
+rw-android-library = { id = "rw.android.library" }
+rw-android-application = { id = "rw.android.application" }

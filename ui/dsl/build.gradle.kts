@@ -1,0 +1,7 @@
+plugins {
+    alias(libs.plugins.rw.jvm.library)
+}
+
+dependencies {
+    api(project(":arc:arc-core"))
+}

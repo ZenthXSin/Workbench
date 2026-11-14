@@ -1,0 +1,6 @@
+Makapix format interoperability fixtures and algorithms
+Source: https://github.com/fabkury/makapix-app (reference repository supplied in old-sources/makapix-reference)
+Revision: e2d427f881dd561aae9d6091af7d54ca4bb264a6
+License: Apache License, Version 2.0 (see LICENSE)
+Kotlin format adaptation and bounds checks added by Rustwright contributors.
+See generate-fixtures.rs for the reproducible upstream fixture generator.
